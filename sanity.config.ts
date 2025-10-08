@@ -1,17 +1,19 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
-import {schemaTypes} from './sanity/schemaTypes'  // ← Added 'sanity/' prefix
+import {schemaTypes} from './sanity/schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'My Music Site',
+  title: 'idontwannadieever',
   
-  projectId: '6n9b95n5',
-  dataset: 'production',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'your_project_id',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   
   plugins: [structureTool()],
   
   schema: {
     types: schemaTypes,
   },
+  
+  basePath: '/studio',
 })
