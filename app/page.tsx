@@ -18,7 +18,7 @@ export default async function Home() {
             Cody Nierstedt
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-6 md:mb-8 px-4">
-            a guitarist, songwriter, producer, and film scorer known for his dynamic collaborations with hip-hop’s most legendary artists.
+            a guitarist, songwriter, producer, and Film score Composer known for his dynamic collaborations with hip-hop’s most legendary artists.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
             <Link 
