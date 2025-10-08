@@ -23,9 +23,9 @@ export default async function AboutPage() {
         
         {/* Header Section */}
         <div className="mb-12 md:mb-16 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6">Who am I, and why am I here?</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6">{"Who am I, and why am I here?"}</h1>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed text-justify">
-           <b>Cody Nierstedt</b> \ˈkō-dē ˈnir-ˌsted\<i> noun.</i><br></br> : guitarist, songwriter, producer, and Film score composer known for his dynamic collaborations with hip-hop’s most legendary artists.
+           <b>Cody Nierstedt</b>  \ˈkō-dē ˈnir-ˌsted\ <i> noun.</i><br></br> : guitarist, songwriter, producer, and Film score composer known for his dynamic collaborations with hip-hop’s most legendary artists.
           </p>
         </div>
 
@@ -35,9 +35,9 @@ export default async function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">My Story</h2>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p className="text-base md:text-lg">
-    As the live guitarist for the Wu-Tang Clan, Cody performed on the group’s historic Las Vegas Residency — the first-ever hip-hop residency — and toured internationally on both the NY State of Mind Tour (captured for Amazon Prime) and The Final Chamber Tour, which included a milestone performance at Madison Square Garden.
-Cody has shared the stage with RZA, GZA, Ghostface Killah, Method Man, Raekwon the Chef, Inspectah Deck, U-God, Masta Killa, Cappadonna, Young Dirty Bastard, Redman, DJ Mathematics, Nas, De La Soul, DJ Scratch, Dave Chapelle, Flava Flav, Mary J. Blige, LL Cool J, Havoc of Mobb Deep, Lil’ Kim, Slick Rick, The Lox, Big Daddy Kane, SWV, Freeway, Ricky Armellino (Ice Nine Kills) and HAWK. Beyond the stage, his work can be heard scoring Hulu’s Wu-Tang: An American Saga and on RZA’s Bobby Digital and the Pit of Snakes.
-His playing and career highlights have been featured twice by Guitar World magazine — both in a digital spotlight and in their prestigious end-of-2024 print edition — cementing his status as one of the most versatile and respected guitarists in modern music.
+   {" As the live guitarist for the Wu-Tang Clan, Cody performed on the group’s historic Las Vegas Residency — the first-ever hip-hop residency — and toured internationally on both the NY State of Mind Tour (captured for Amazon Prime) and The Final Chamber Tour, which included a milestone performance at Madison Square Garden."}
+ {" Cody has shared the stage with RZA, GZA, Ghostface Killah, Method Man, Raekwon the Chef, Inspectah Deck, U-God, Masta Killa, Cappadonna, Young Dirty Bastard, Redman, DJ Mathematics, Nas, De La Soul, DJ Scratch, Dave Chapelle, Flava Flav, Mary J. Blige, LL Cool J, Havoc of Mobb Deep, Lil’ Kim, Slick Rick, The Lox, Big Daddy Kane, SWV, Freeway, Ricky Armellino (Ice Nine Kills) and HAWK. Beyond the stage, his work can be heard scoring Hulu’s Wu-Tang: An American Saga and on RZA’s Bobby Digital and the Pit of Snakes."}
+{" His playing and career highlights have been featured twice by Guitar World magazine — both in a digital spotlight and in their prestigious end-of-2024 print edition — cementing his status as one of the most versatile and respected guitarists in modern music."}
               </p>
 
               
