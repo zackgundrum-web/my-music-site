@@ -60,13 +60,7 @@ export default function Navbar() {
               >
                 Music
               </Link>
-              <Link 
-                href="/tour" 
-                className="hover:text-gray-300 transition py-2"
-                onClick={() => setIsOpen(false)}
-              >
-                Tour
-              </Link>
+              {/* <Link href="/tour" className="hover:text-gray-300 transition py-2" onClick={() => setIsOpen(false)}>Tour </Link> */}
               <Link 
                 href="/about" 
                 className="hover:text-gray-300 transition py-2"
