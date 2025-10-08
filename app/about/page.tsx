@@ -1,4 +1,5 @@
 import { client, urlFor } from '@/lib/sanity'
+import NewsletterForm from '@/components/NewsletterForm'
 
 async function getMusicians() {
   return client.fetch(`*[_type == "musician"] | order(_createdAt asc)`)
@@ -123,7 +124,7 @@ export default async function AboutPage() {
                 ))}
               </div>
               <p className="text-center text-gray-500 mt-8 text-sm md:text-base">
-                We're honored to use and endorse the best gear in the industry
+                I'm honored to use and endorse the best gear in the industry
               </p>
             </>
           ) : (
@@ -132,89 +133,16 @@ export default async function AboutPage() {
             </p>
           )}
         </section>
-
-        {/* Bands Worked With Section */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
-            Bands I've Shared the Stage With
-          </h2>
-          {bands.length > 0 ? (
-            <div className="space-y-4">
-              {bands.map((band: any) => (
-                <div 
-                  key={band._id}
-                  className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 md:p-6 hover:bg-gray-900 hover:border-purple-600 transition group"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                    {/* Band Logo (if available) */}
-                    {band.bandLogo && (
-                      <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-gray-800">
-                        <img
-                          src={urlFor(band.bandLogo).width(100).url()}
-                          alt={band.bandName}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    )}
-                    
-                    <div className="flex-grow">
-                      <div className="flex items-center gap-3 mb-1 flex-wrap">
-                        <h3 className="text-xl md:text-2xl font-semibold group-hover:text-purple-400 transition">
-                          {band.bandName}
-                        </h3>
-                        {band.featured && (
-                          <span className="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-xs font-semibold">
-                            ⭐ Featured
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-sm md:text-base text-gray-400">
-                        📍 {band.venue}
-                      </p>
-                      {band.type && (
-                        <p className="text-xs md:text-sm text-gray-500 mt-1">
-                          {band.type === 'opened' && '🎤 Opened For'}
-                          {band.type === 'coheadlined' && '🎸 Co-Headlined'}
-                          {band.type === 'festival' && '🎪 Festival'}
-                          {band.type === 'tour' && '🚐 Tour'}
-                        </p>
-                      )}
-                      {band.description && (
-                        <p className="text-sm text-gray-500 mt-2">
-                          {band.description}
-                        </p>
-                      )}
-                    </div>
-                    
-                    <div className="flex-shrink-0">
-                      <span className="inline-block bg-purple-900/30 text-purple-400 px-4 py-2 rounded-full text-sm font-semibold">
-                        {band.year}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-gray-500 text-lg">
-              No band collaborations added yet. Add them in Sanity Studio!
-            </p>
-          )}
-        </section>
-
         {/* Call to Action */}
-        <section className="text-center bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-800/30 rounded-lg p-8 md:p-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Want to Work Together?
-          </h2>
-          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            I'm always looking to collaborate with talented musicians, producers, 
-            and venues. Get in touch with me!
-          </p>
-          <button className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition text-base md:text-lg">
-            Contact Us
-          </button>
-        </section>
+<section className="text-center bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-800/30 rounded-lg p-8 md:p-12">
+  <h2 className="text-3xl md:text-4xl font-bold mb-4">
+    Stay Connected
+  </h2>
+  <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+    {"Get exclusive updates about my music, tour dates, and behind-the-scenes content"}
+  </p>
+  <NewsletterForm source="about" buttonColor="white" />
+</section>
 
       </div>
     </main>
