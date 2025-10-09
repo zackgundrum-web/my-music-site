@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { client, urlFor } from '@/lib/sanity'
 import NewsletterForm from '@/components/NewsletterForm'
 
@@ -6,19 +7,44 @@ async function getAlbums() {
   return client.fetch(`*[_type == "album"] | order(releaseDate desc)[0...3]`)
 }
 
+async function getHeroPhoto() {
+  // Fetch a featured photo for the hero background
+  return client.fetch(`*[_type == "photo" && featured == true][0]`)
+}
+
 export default async function Home() {
   const albums = await getAlbums()
+  const heroPhoto = await getHeroPhoto()
 
   return (
     <main className="min-h-screen">
       {/* Hero Section - Mobile Optimized */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-900/20 to-black px-4">
-        <div className="text-center max-w-4xl">
+      <section className="relative min-h-screen flex items-center justify-center bg-black px-4">
+        {/* Background Image */}
+        {heroPhoto && (
+          <>
+            <div className="absolute inset-0 z-0">
+              <Image
+                src={urlFor(heroPhoto.image).width(2000).url()}
+                alt={heroPhoto.title || 'Hero background'}
+                fill
+                className="object-contain object-left"
+                style={{ objectPosition: '-10px center' }}
+                priority
+              />
+            </div>
+            {/* Dark overlay for mobile only */}
+            <div className="absolute inset-0 bg-black/60 z-0 md:hidden" />
+          </>
+        )}
+
+        {/* Hero Content */}
+        <div className="text-center max-w-4xl relative z-10">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 md:mb-6">
             Cody Nierstedt
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-6 md:mb-8 px-4">
-            a guitarist, songwriter, producer, and Film score Composer known for his dynamic collaborations with hip-hop’s most legendary artists.
+            Guitarist, songwriter, producer, and Film score Composer known for his dynamic collaborations with hip-hop's most legendary artists.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
             <Link 

@@ -4,16 +4,14 @@ import {schemaTypes} from './sanity/schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'idontwannadieever',
+  title: 'I Dont Wanna Die Ever Studio',
   
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'your_project_id',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId: '6n9b95n5',
+  dataset: 'production',
   
   plugins: [structureTool()],
   
   schema: {
     types: schemaTypes,
   },
-  
-  basePath: '/studio',
 })

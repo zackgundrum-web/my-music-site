@@ -1,25 +1,32 @@
-import { createClient } from 'next-sanity'
-import imageUrlBuilder from '@sanity/image-url'
+import { createClient } from 'next-sanity';
+import imageUrlBuilder from '@sanity/image-url';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
-// Public client for reading
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
+const apiVersion = '2024-01-01';
+
+// Read-only client for public data
 export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
-  apiVersion: '2024-01-01',
+  projectId,
+  dataset,
+  apiVersion,
   useCdn: true,
-})
+});
 
-// Server-side client for writing (has auth token)
+// Write client with token for server-side writes
 export const writeClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
-  apiVersion: '2024-01-01',
+  projectId,
+  dataset,
+  apiVersion,
   useCdn: false,
-  token: process.env.SANITY_API_TOKEN, // Only available server-side
-})
+  token: process.env.SANITY_API_TOKEN,
+});
 
-const builder = imageUrlBuilder(client)
+// Image URL builder for transforming Sanity images
+const builder = imageUrlBuilder(client);
 
-export function urlFor(source: any) {
-  return builder.image(source)
+// Export a simple helper function
+export function urlFor(source: SanityImageSource) {
+  return builder.image(source);
 }

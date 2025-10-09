@@ -1,5 +1,4 @@
 'use client'
-
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -14,18 +13,19 @@ export default function Navbar() {
           <Link href="/" className="text-xl md:text-2xl font-bold hover:text-gray-300 transition">
             idontwannadieever
           </Link>
-          
+         
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 text-lg">
             <Link href="/" className="hover:text-gray-300 transition">Home</Link>
             <Link href="/music" className="hover:text-gray-300 transition">Music</Link>
-           {/*<Link href="/tour" className="hover:text-gray-300 transition">Tour</Link> */}
-          {/*<Link href="/merch" className="hover:text-gray-300 transition">Merch</Link>*/}
+            <Link href="/gallery" className="hover:text-gray-300 transition">Gallery</Link>
+            {/*<Link href="/tour" className="hover:text-gray-300 transition">Tour</Link> */}
+            {/*<Link href="/merch" className="hover:text-gray-300 transition">Merch</Link>*/}
             <Link href="/about" className="hover:text-gray-300 transition">About</Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden text-white p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
@@ -46,23 +46,30 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden pt-4 pb-2">
             <div className="flex flex-col gap-4 text-lg">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="hover:text-gray-300 transition py-2"
                 onClick={() => setIsOpen(false)}
               >
                 Home
               </Link>
-              <Link 
-                href="/music" 
+              <Link
+                href="/music"
                 className="hover:text-gray-300 transition py-2"
                 onClick={() => setIsOpen(false)}
               >
                 Music
               </Link>
+              <Link
+                href="/gallery"
+                className="hover:text-gray-300 transition py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Gallery
+              </Link>
               {/* <Link href="/tour" className="hover:text-gray-300 transition py-2" onClick={() => setIsOpen(false)}>Tour </Link> */}
-              <Link 
-                href="/about" 
+              <Link
+                href="/about"
                 className="hover:text-gray-300 transition py-2"
                 onClick={() => setIsOpen(false)}
               >
