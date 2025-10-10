@@ -5,5 +5,6 @@ import bandCollaboration from './bandCollaboration'
 import tourDate from './tourDate'
 import emailSubscriber from './emailSubscriber'
 import photo from './photo'
+import aboutStory from './aboutStory'
 
-export const schemaTypes = [album, musician, endorsement, bandCollaboration, tourDate, emailSubscriber,photo]
+export const schemaTypes = [album, musician, endorsement, bandCollaboration, tourDate, emailSubscriber,photo, aboutStory]

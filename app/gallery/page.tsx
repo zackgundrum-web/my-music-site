@@ -1,6 +1,7 @@
 import { client } from '@/lib/sanity';
 import { Metadata } from 'next';
 import PhotoGallery from '@/components/PhotoGallery';
+import InstagramFeedClient from '@/components/InstagramFeedClient';
 
 export const metadata: Metadata = {
   title: 'Gallery | I Don\'t Wanna Die Ever',
@@ -37,7 +38,7 @@ async function getPhotos(): Promise<Photo[]> {
     location,
     featured
   }`;
-  
+ 
   return client.fetch(query);
 }
 
@@ -50,11 +51,11 @@ export default async function GalleryPage() {
       <section className="relative py-20 md:py-32">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
-            <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 text-white">
-             Gallery
-             </h1>
+          <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 text-white">
+            Gallery
+          </h1>
           <p className="text-xl md:text-2xl text-gray-300 text-center max-w-3xl mx-auto">
-            Photos and moments from my journey
+            Photos and moments from our journey
           </p>
         </div>
       </section>
@@ -64,6 +65,13 @@ export default async function GalleryPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">Photos</h2>
           <PhotoGallery photos={photos} initialDisplayCount={12} />
+        </div>
+      </section>
+      {/* Instagram Feed Section */}
+      <section className="py-12 md:py-20 border-t border-purple-500/20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">Instagram</h2>
+          <InstagramFeedClient />
         </div>
       </section>
 
