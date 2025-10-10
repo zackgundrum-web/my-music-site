@@ -35,6 +35,7 @@ export default async function Home() {
             </div>
             {/* Dark overlay for mobile only */}
             <div className="absolute inset-0 bg-black/60 z-0 md:hidden" />
+            
           </>
         )}
 
