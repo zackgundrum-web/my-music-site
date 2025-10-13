@@ -39,7 +39,14 @@ export default {
       name: 'featured',
       title: 'Featured',
       type: 'boolean',
-      description: 'Featured photos appear first',
+      description: 'Featured photos appear first in gallery',
+      initialValue: false
+    },
+    {
+      name: 'lessonsBackground',
+      title: 'Lessons Page Background',
+      type: 'boolean',
+      description: 'Use this photo as the background for the lessons page hero section',
       initialValue: false
     },
     {
@@ -69,7 +76,20 @@ export default {
     select: {
       title: 'title',
       subtitle: 'location',
-      media: 'image'
+      media: 'image',
+      featured: 'featured',
+      lessonsBackground: 'lessonsBackground'
+    },
+    prepare(selection: any) {
+      const { title, subtitle, featured, lessonsBackground } = selection
+      const badges = []
+      if (featured) badges.push('⭐ Featured')
+      if (lessonsBackground) badges.push('🎸 Lessons BG')
+      
+      return {
+        title: title,
+        subtitle: badges.length > 0 ? `${subtitle || ''} ${badges.join(' ')}` : subtitle
+      }
     }
   }
 }

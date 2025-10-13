@@ -16,7 +16,7 @@ export default function Navbar() {
          
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 text-lg">
-            <Link href="/" className="hover:text-gray-300 transition">Home</Link>
+            <Link href="/lessons" className="hover:text-gray-300 transition">Book a Lesson</Link>
             <Link href="/music" className="hover:text-gray-300 transition">Music</Link>
             <Link href="/gallery" className="hover:text-gray-300 transition">Gallery</Link>
             {/*<Link href="/tour" className="hover:text-gray-300 transition">Tour</Link> */}
@@ -47,11 +47,11 @@ export default function Navbar() {
           <div className="md:hidden pt-4 pb-2">
             <div className="flex flex-col gap-4 text-lg">
               <Link
-                href="/"
+                href="/lessons"
                 className="hover:text-gray-300 transition py-2"
                 onClick={() => setIsOpen(false)}
               >
-                Home
+                Lessons
               </Link>
               <Link
                 href="/music"
