@@ -1,0 +1,1096 @@
+[
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Album Title"
+      },
+      {
+        "name": "artist",
+        "type": "string"
+      },
+      {
+        "name": "releaseDate",
+        "type": "date"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "coverImage",
+        "type": "image"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/"
+                                  ],
+                                  "allowRelative": false,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "name": "href",
+                      "type": "url",
+                      "title": "URL"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Emphasis"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bullet"
+              },
+              {
+                "value": "number",
+                "title": "Numbered"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "H1"
+              },
+              {
+                "value": "h2",
+                "title": "H2"
+              },
+              {
+                "value": "h3",
+                "title": "H3"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "description",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link to this album on Spotify",
+        "name": "spotifyLink",
+        "type": "url"
+      }
+    ],
+    "name": "album",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "role",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image",
+        "title": "Profile Image"
+      }
+    ],
+    "name": "musician",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "brand",
+        "type": "string",
+        "title": "Brand Name"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "e.g., Guitars, Amplifiers, Cymbals",
+        "name": "product",
+        "type": "string",
+        "title": "Product/Category"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "logo",
+        "type": "image",
+        "title": "Brand Logo"
+      },
+      {
+        "description": "Optional details about the endorsement",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Optional link to brand website",
+        "name": "website",
+        "type": "url",
+        "title": "Brand Website"
+      },
+      {
+        "description": "Lower numbers appear first",
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      }
+    ],
+    "name": "endorsement",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "bandName",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Where you performed together",
+        "name": "venue",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Year of the collaboration",
+        "name": "year",
+        "type": "string"
+      },
+      {
+        "description": "Exact date of performance (optional)",
+        "name": "date",
+        "type": "date",
+        "title": "Full Date"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Opened For",
+              "value": "opened"
+            },
+            {
+              "title": "Co-Headlined",
+              "value": "coheadlined"
+            },
+            {
+              "title": "Festival",
+              "value": "festival"
+            },
+            {
+              "title": "Tour",
+              "value": "tour"
+            }
+          ]
+        },
+        "name": "type",
+        "type": "string",
+        "title": "Collaboration Type"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "bandLogo",
+        "type": "image",
+        "title": "Band Logo/Image"
+      },
+      {
+        "description": "Optional details about the show or collaboration",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "initialValue": false,
+        "description": "Highlight this as a major collaboration",
+        "name": "featured",
+        "type": "boolean",
+        "title": "Featured Collaboration"
+      },
+      {
+        "description": "Lower numbers appear first",
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      }
+    ],
+    "name": "bandCollaboration",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "date",
+        "type": "datetime"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "venue",
+        "type": "string",
+        "title": "Venue Name"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "e.g., Los Angeles, CA or Brooklyn, NY",
+        "name": "city",
+        "type": "string",
+        "title": "City/Location"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link to buy tickets",
+        "name": "ticketLink",
+        "type": "url"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "On Sale",
+              "value": "on-sale"
+            },
+            {
+              "title": "Few Tickets Left",
+              "value": "few-left"
+            },
+            {
+              "title": "Sold Out",
+              "value": "sold-out"
+            },
+            {
+              "title": "Cancelled",
+              "value": "cancelled"
+            }
+          ]
+        },
+        "initialValue": "on-sale",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "on-sale",
+                  "few-left",
+                  "sold-out",
+                  "cancelled"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "status",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Optional image of the venue",
+        "name": "venueImage",
+        "type": "image"
+      },
+      {
+        "description": "Supporting acts or special guests",
+        "name": "specialGuests",
+        "type": "string"
+      },
+      {
+        "initialValue": false,
+        "description": "Highlight this as a special show",
+        "name": "featured",
+        "type": "boolean",
+        "title": "Featured Show"
+      },
+      {
+        "description": "Optional details about the show",
+        "name": "description",
+        "type": "text",
+        "title": "Show Description"
+      }
+    ],
+    "name": "tourDate",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "email",
+        "type": "string",
+        "title": "Email Address"
+      },
+      {
+        "readOnly": true,
+        "name": "subscribedAt",
+        "type": "datetime"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Homepage",
+              "value": "homepage"
+            },
+            {
+              "title": "Tour Page",
+              "value": "tour"
+            },
+            {
+              "title": "About Page",
+              "value": "about"
+            },
+            {
+              "title": "Other",
+              "value": "other"
+            }
+          ]
+        },
+        "description": "Where did they subscribe from?",
+        "name": "source",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Active",
+              "value": "active"
+            },
+            {
+              "title": "Unsubscribed",
+              "value": "unsubscribed"
+            }
+          ]
+        },
+        "initialValue": "active",
+        "name": "status",
+        "type": "string"
+      }
+    ],
+    "name": "emailSubscriber",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "rows": 3,
+        "name": "caption",
+        "type": "text"
+      },
+      {
+        "name": "date",
+        "type": "date",
+        "title": "Date Taken"
+      },
+      {
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "initialValue": false,
+        "description": "Featured photos appear first in gallery",
+        "name": "featured",
+        "type": "boolean"
+      },
+      {
+        "initialValue": false,
+        "description": "Use this photo as the background for the lessons page hero section",
+        "name": "lessonsBackground",
+        "type": "boolean",
+        "title": "Lessons Page Background"
+      },
+      {
+        "description": "Lower numbers appear first",
+        "name": "order",
+        "type": "number"
+      }
+    ],
+    "name": "photo",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "The main heading for the story section",
+        "name": "title",
+        "type": "string",
+        "title": "Section Title"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Add multiple paragraphs for your story",
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/"
+                                  ],
+                                  "allowRelative": false,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "name": "href",
+                      "type": "url",
+                      "title": "URL"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Emphasis"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bullet"
+              },
+              {
+                "value": "number",
+                "title": "Numbered"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "H1"
+              },
+              {
+                "value": "h2",
+                "title": "H2"
+              },
+              {
+                "value": "h3",
+                "title": "H3"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "content",
+        "type": "array",
+        "title": "Story Content"
+      },
+      {
+        "initialValue": true,
+        "description": "Only one story should be active at a time",
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Active"
+      }
+    ],
+    "name": "aboutStory",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Full Name"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "email",
+        "type": "string",
+        "title": "Email Address"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "title": "Phone Number"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Beginner",
+              "value": "beginner"
+            },
+            {
+              "title": "Intermediate",
+              "value": "intermediate"
+            },
+            {
+              "title": "Advanced",
+              "value": "advanced"
+            }
+          ]
+        },
+        "name": "skillLevel",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "In-Person",
+              "value": "in-person"
+            },
+            {
+              "title": "Online (Zoom/Skype)",
+              "value": "online"
+            },
+            {
+              "title": "Either",
+              "value": "either"
+            }
+          ]
+        },
+        "name": "lessonType",
+        "type": "string",
+        "title": "Lesson Type Preference"
+      },
+      {
+        "rows": 4,
+        "name": "goals",
+        "type": "text",
+        "title": "What are your musical goals?"
+      },
+      {
+        "rows": 3,
+        "name": "availability",
+        "type": "text",
+        "title": "Preferred Days/Times"
+      },
+      {
+        "rows": 4,
+        "name": "message",
+        "type": "text",
+        "title": "Additional Information"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "New",
+              "value": "new"
+            },
+            {
+              "title": "Contacted",
+              "value": "contacted"
+            },
+            {
+              "title": "Scheduled",
+              "value": "scheduled"
+            },
+            {
+              "title": "Declined",
+              "value": "declined"
+            }
+          ]
+        },
+        "initialValue": "new",
+        "name": "status",
+        "type": "string",
+        "title": "Inquiry Status"
+      },
+      {
+        "name": "submittedAt",
+        "type": "datetime"
+      },
+      {
+        "rows": 3,
+        "description": "Private notes for tracking this inquiry",
+        "name": "notes",
+        "type": "text",
+        "title": "Internal Notes"
+      }
+    ],
+    "name": "lessonInquiry",
+    "type": "document",
+    "title": "Lesson Inquiries"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "accept": "video/*"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "videoFile",
+        "type": "file"
+      },
+      {
+        "initialValue": false,
+        "description": "Set as the hero background video",
+        "name": "featured",
+        "type": "boolean",
+        "title": "Featured (Hero Video)"
+      },
+      {
+        "initialValue": 0,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "precision",
+                "constraint": 2
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "When the video should start looping (in seconds)",
+        "name": "loopStart",
+        "type": "number",
+        "title": "Loop Start Time (seconds)"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "precision",
+                "constraint": 2
+              },
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "When the video should loop back to start (in seconds)",
+        "name": "loopEnd",
+        "type": "number",
+        "title": "Loop End Time (seconds)"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Fallback image for browsers that do not support video or while video loads",
+        "name": "thumbnail",
+        "type": "image",
+        "title": "Video Thumbnail"
+      },
+      {
+        "description": "Describe the video content for accessibility",
+        "name": "altText",
+        "type": "string"
+      },
+      {
+        "initialValue": 0,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "max",
+                "constraint": 1
+              },
+              {
+                "flag": "precision",
+                "constraint": 2
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Video volume (0-1)",
+        "name": "volume",
+        "type": "number"
+      },
+      {
+        "initialValue": 1,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0.25
+              },
+              {
+                "flag": "max",
+                "constraint": 4
+              },
+              {
+                "flag": "precision",
+                "constraint": 2
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Video playback speed (0.5 = half speed, 2 = double speed)",
+        "name": "playbackSpeed",
+        "type": "number"
+      }
+    ],
+    "name": "video",
+    "type": "document"
+  }
+]
