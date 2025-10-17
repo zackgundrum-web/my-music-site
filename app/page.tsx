@@ -2,40 +2,61 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { client, urlFor } from '@/lib/sanity'
 import NewsletterForm from '@/components/NewsletterForm'
+import HeroVideo from '@/components/HeroVideo'
 
-async function getAlbums() {
+interface Album {
+  _id: string
+  title: string
+  artist: string
+  coverImage: any
+  spotifyLink?: string
+  releaseDate: string
+}
+
+interface HeroVideoType {
+  _id: string
+  title: string
+  videoUrl: string
+  loopStart?: number
+  loopEnd?: number
+  volume?: number
+  playbackSpeed?: number
+  thumbnail?: any
+  altText?: string
+}
+
+async function getAlbums(): Promise<Album[]> {
   return client.fetch(`*[_type == "album"] | order(releaseDate desc)[0...3]`)
 }
 
-async function getHeroPhoto() {
-  // Fetch a featured photo for the hero background
-  return client.fetch(`*[_type == "photo" && featured == true][0]`)
+async function getHeroVideo(): Promise<HeroVideoType | null> {
+  return client.fetch(`*[_type == "video" && featured == true][0]{
+    _id,
+    title,
+    "videoUrl": videoFile.asset->url,
+    loopStart,
+    loopEnd,
+    volume,
+    playbackSpeed,
+    thumbnail,
+    altText
+  }`)
 }
 
 export default async function Home() {
   const albums = await getAlbums()
-  const heroPhoto = await getHeroPhoto()
+  const heroVideo = await getHeroVideo()
 
   return (
     <main className="min-h-screen">
       {/* Hero Section - Mobile Optimized */}
       <section className="relative min-h-screen flex items-center justify-center bg-black px-4">
-        {/* Background Image */}
-        {heroPhoto && (
+        {/* Background Video */}
+        {heroVideo && (
           <>
-            <div className="absolute inset-0 z-0">
-              <Image
-                src={urlFor(heroPhoto.image).width(2000).url()}
-                alt={heroPhoto.title || 'Hero background'}
-                fill
-                className="object-contain object-left opacity-75"
-                style={{ objectPosition: '-10px center' }}
-                priority
-              />
-            </div>
+            <HeroVideo video={heroVideo} />
             {/* Dark overlay for screens smaller than 1080p */}
-            <div className="absolute inset-0 bg-black/60 z-0 xl:hidden" />
-            
+            <div className="absolute inset-0 bg-black/50 z-[1]" />
           </>
         )}
 
