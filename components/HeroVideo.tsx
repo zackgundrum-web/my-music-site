@@ -93,7 +93,7 @@ export default function HeroVideo({ video }: HeroVideoProps) {
       {video.thumbnail && (
         <div 
           className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-500"
-          style={{ opacity: isVideoLoaded ? 0 : 0.75 }}
+          style={{ opacity: isVideoLoaded ? 0 : 0 }}
         >
           <Image
             src={urlFor(video.thumbnail).width(2000).url()}

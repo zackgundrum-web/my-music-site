@@ -56,7 +56,7 @@ export default async function Home() {
           <>
             <HeroVideo video={heroVideo} />
             {/* Dark overlay for screens smaller than 1080p */}
-            <div className="absolute inset-0 bg-black/50 z-[1]" />
+            <div className="absolute inset-0 bg-black/15 z-[1]" />
           </>
         )}
 
